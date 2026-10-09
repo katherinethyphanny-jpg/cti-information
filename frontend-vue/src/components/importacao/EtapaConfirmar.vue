@@ -100,7 +100,7 @@ const auth = useAuthStore()
       <button
         type="button"
         :disabled="upload.carregando || !upload.podeConfirmar"
-        class="inline-flex items-center justify-center gap-2 rounded-md bg-[#FF8F00] px-6 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#E68100] disabled:cursor-not-allowed disabled:opacity-50"
+        class="inline-flex items-center justify-center gap-2 rounded-md bg-[#8C1D40] px-6 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#701731] disabled:cursor-not-allowed disabled:opacity-50"
         @click="emit('confirmar')"
       >
         <svg v-if="upload.carregando" class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">

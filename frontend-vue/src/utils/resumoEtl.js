@@ -9,7 +9,7 @@ export const temRegistroEtl = clientes => {
 
 // Mesmas cores do gráfico por nível do Dashboard (A azul, B laranja, C cinza).
 export const ESTILO_NIVEL = {
-  A: { selo: 'bg-blue-50 text-[#006EB7]', barra: 'bg-[#006EB7]' },
-  B: { selo: 'bg-orange-50 text-[#A85700]', barra: 'bg-[#FF8F00]' },
-  C: { selo: 'bg-slate-100 text-slate-600', barra: 'bg-[#94A3B8]' }
+  A: { selo: 'bg-purple-50 text-[#5B2A86]', barra: 'bg-[#5B2A86]' },
+  B: { selo: 'bg-orange-50 text-[#A85700]', barra: 'bg-[#8C1D40]' },
+  C: { selo: 'bg-slate-100 text-slate-600', barra: 'bg-[#B9A7C9]' }
 }

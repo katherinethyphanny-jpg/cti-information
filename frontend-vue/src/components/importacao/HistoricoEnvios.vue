@@ -99,7 +99,7 @@ const statusInfo = item => {
                   <button
                     v-if="item.mensagem"
                     type="button"
-                    class="mt-1.5 block text-[11px] font-semibold text-[#006EB7] hover:underline"
+                    class="mt-1.5 block text-[11px] font-semibold text-[#5B2A86] hover:underline"
                     :aria-expanded="detalhesAbertos.has(item.id)"
                     @click="alternarDetalhes(item.id)"
                   >
@@ -112,7 +112,7 @@ const statusInfo = item => {
                     <button
                       v-if="item.conteudoOriginal"
                       type="button"
-                      class="text-gray-400 transition hover:text-[#006EB7]"
+                      class="text-gray-400 transition hover:text-[#5B2A86]"
                       aria-label="Baixar linhas com erro"
                       title="Baixar linhas com erro"
                       @click="upload.baixarOriginal(item)"

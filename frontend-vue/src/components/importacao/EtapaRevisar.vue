@@ -20,7 +20,7 @@ const MAX_CORRECOES = 6
 const indicadores = computed(() => [
   { rotulo: 'Linhas lidas', valor: formatarNumero(analise.value.linhasLidas), classe: 'bg-gray-50 text-[#292A2F]' },
   { rotulo: 'Prontas para importar', valor: formatarNumero(analise.value.validos.length), classe: 'bg-green-50 text-green-700' },
-  { rotulo: 'Corrigidas automaticamente', valor: formatarNumero(correcoes.value.clientesCorrigidos), classe: 'bg-blue-50 text-[#006EB7]' },
+  { rotulo: 'Corrigidas automaticamente', valor: formatarNumero(correcoes.value.clientesCorrigidos), classe: 'bg-purple-50 text-[#5B2A86]' },
   { rotulo: 'Com erro', valor: formatarNumero(totalComErro.value), classe: totalComErro.value ? 'bg-red-50 text-red-600' : 'bg-gray-50 text-gray-500' }
 ])
 
@@ -124,7 +124,7 @@ const trocarArquivo = () => {
 
           <button
             type="button"
-            class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-[#006EB7] hover:underline"
+            class="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-[#5B2A86] hover:underline"
             @click="upload.baixarLinhasComErro()"
           >
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -170,7 +170,7 @@ const trocarArquivo = () => {
       <button
         type="button"
         :disabled="!upload.podeConfirmar"
-        class="rounded-md bg-[#006EB7] px-6 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#03558c] disabled:cursor-not-allowed disabled:opacity-50"
+        class="rounded-md bg-[#5B2A86] px-6 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#46206A] disabled:cursor-not-allowed disabled:opacity-50"
         @click="emit('continuar')"
       >
         Continuar

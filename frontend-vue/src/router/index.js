@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import Cadastro from '../views/Cadastro.vue'
 import UploadView from '../views/UploadView.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Relatorios from '../views/Relatorios.vue'
@@ -17,6 +18,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/cadastro',
+    name: 'Cadastro',
+    component: Cadastro,
   },
   {
     path: '/upload',
@@ -55,9 +61,9 @@ router.beforeEach(to => {
     return { path: '/login', query: { redirect: to.fullPath } }
   }
 
-  // Já autenticado tentando abrir a tela de login: não faz sentido,
+  // Já autenticado tentando abrir login ou cadastro: não faz sentido,
   // manda direto para o dashboard.
-  if (to.path === '/login' && autenticado) {
+  if ((to.path === '/login' || to.path === '/cadastro') && autenticado) {
     return '/dashboard'
   }
 

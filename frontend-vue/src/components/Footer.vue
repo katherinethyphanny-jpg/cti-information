@@ -1,12 +1,12 @@
 <template>
   <!-- Footer -->
-  <footer class="bg-[#292930] text-[#FAFAF7] py-16 px-8 mt-auto">
+  <footer class="bg-[#292930] text-[#FBF8FC] py-16 px-8 mt-auto">
     <div
       class="max-w-[1360px] mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 border-b border-white/10 pb-10 mb-8"
     >
       <div>
         <div class="font-['Space_Grotesk'] font-bold text-2xl text-white mb-4">
-          CTI Insights<span class="text-[#FF8F00]">.</span>
+          CTI Information<span class="text-[#8C1D40]">.</span>
         </div>
         <p class="text-[#A5A5A5] text-sm leading-[1.6] max-w-[320px] m-0">
           Transformando a gestão comercial do Provedor CTI através da automação de planilhas e
@@ -21,22 +21,22 @@
              contratado, por isso levam ao login, não direto à tela. -->
         <ul class="list-none p-0 m-0 space-y-3 text-sm text-[#A5A5A5]">
           <li>
-            <a href="#resultados" class="hover:text-[#FF8F00] transition-colors"
+            <a href="#resultados" class="hover:text-[#8C1D40] transition-colors"
               >Dashboard Analítico</a
             >
           </li>
           <li>
-            <a href="#arquitetura" class="hover:text-[#FF8F00] transition-colors"
+            <a href="#arquitetura" class="hover:text-[#8C1D40] transition-colors"
               >Motor de Upload (ETL)</a
             >
           </li>
           <li>
-            <router-link to="/login" class="hover:text-[#FF8F00] transition-colors"
+            <router-link to="/login" class="hover:text-[#8C1D40] transition-colors"
               >Gestão de Consultores</router-link
             >
           </li>
           <li>
-            <router-link to="/login" class="hover:text-[#FF8F00] transition-colors"
+            <router-link to="/login" class="hover:text-[#8C1D40] transition-colors"
               >Relatórios de Clientes</router-link
             >
           </li>
@@ -46,14 +46,14 @@
       <div>
         <h4 class="font-['Space_Grotesk'] text-base mb-5 text-white">Stack Técnico</h4>
         <ul class="list-none p-0 m-0 space-y-3 text-sm text-[#A5A5A5]">
-          <li><a href="#" class="hover:text-[#FF8F00] transition-colors">Vue.js (Front-end)</a></li>
+          <li><a href="#" class="hover:text-[#8C1D40] transition-colors">Vue.js (Front-end)</a></li>
           <li>
-            <a href="#" class="hover:text-[#FF8F00] transition-colors">Spring Boot (API REST)</a>
+            <a href="#" class="hover:text-[#8C1D40] transition-colors">Spring Boot (API REST)</a>
           </li>
           <li>
-            <a href="#" class="hover:text-[#FF8F00] transition-colors">Python/Pandas (Dados)</a>
+            <a href="#" class="hover:text-[#8C1D40] transition-colors">Python/Pandas (Dados)</a>
           </li>
-          <li><a href="#" class="hover:text-[#FF8F00] transition-colors">PostgreSQL (Banco)</a></li>
+          <li><a href="#" class="hover:text-[#8C1D40] transition-colors">PostgreSQL (Banco)</a></li>
         </ul>
       </div>
 
@@ -61,13 +61,13 @@
         <h4 class="font-['Space_Grotesk'] text-base mb-5 text-white">Institucional</h4>
         <ul class="list-none p-0 m-0 space-y-3 text-sm text-[#A5A5A5]">
           <li>
-            <a href="#" class="hover:text-[#FF8F00] transition-colors">Suporte Provedor CTI</a>
+            <a href="#" class="hover:text-[#8C1D40] transition-colors">Suporte Provedor CTI</a>
           </li>
           <li>
-            <a href="#" class="hover:text-[#FF8F00] transition-colors">Políticas de Privacidade</a>
+            <a href="#" class="hover:text-[#8C1D40] transition-colors">Políticas de Privacidade</a>
           </li>
           <li>
-            <a href="#" class="hover:text-[#FF8F00] transition-colors">Termos de Segurança</a>
+            <a href="#" class="hover:text-[#8C1D40] transition-colors">Termos de Segurança</a>
           </li>
         </ul>
       </div>

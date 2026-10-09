@@ -41,9 +41,9 @@ const insights = computed(() => gerarInsights(clientes.lista))
         <div
           v-for="item in insights"
           :key="item.rotulo"
-          class="rounded-lg bg-blue-50 px-4 py-3"
+          class="rounded-lg bg-purple-50 px-4 py-3"
         >
-          <dt class="text-xs text-[#006EB7]">{{ item.rotulo }}</dt>
+          <dt class="text-xs text-[#5B2A86]">{{ item.rotulo }}</dt>
           <dd class="mt-1 truncate text-xl font-bold text-[#292A2F]">{{ item.valor }}</dd>
           <dd class="text-xs text-gray-500">{{ item.detalhe }}</dd>
         </div>
@@ -61,7 +61,7 @@ const insights = computed(() => gerarInsights(clientes.lista))
 
       <RouterLink
         to="/dashboard"
-        class="rounded-md bg-[#006EB7] px-6 py-2.5 text-center text-xs font-semibold text-white shadow-sm transition hover:bg-[#03558c]"
+        class="rounded-md bg-[#5B2A86] px-6 py-2.5 text-center text-xs font-semibold text-white shadow-sm transition hover:bg-[#46206A]"
       >
         Ir para o Dashboard
       </RouterLink>

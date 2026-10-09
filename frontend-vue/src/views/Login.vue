@@ -47,43 +47,43 @@ const entrar = async () => {
     <!-- Painel esquerdo: identidade e proposta de valor (público, sem formulário) -->
 
     <div
-      class="relative flex flex-col justify-between overflow-hidden bg-[#0B2545] px-8 py-10 text-white md:w-1/2 md:px-16 md:py-14 bg-[linear-gradient(to_right,#15335A_1px,transparent_1px),linear-gradient(to_bottom,#15335A_1px,transparent_1px)] bg-[size:40px_40px]"
+      class="relative flex flex-col justify-between overflow-hidden bg-[#2A1535] px-8 py-10 text-white md:w-1/2 md:px-16 md:py-14"
     >
 
       <RouterLink
         to="/"
         class="text-2xl font-bold tracking-tight text-white"
       >
-        CTI Insights<span class="text-[#FF8F00]">.</span>
+        cti-information<span class="text-[#D98BA3]">.</span>
       </RouterLink>
 
       <div class="max-w-md">
 
         <h1 class="font-['Space_Grotesk'] text-4xl font-bold leading-tight tracking-tight md:text-5xl">
           Transforme dados em
-          <span class="text-[#FF8F00]">decisões estratégicas</span>
+          <span class="text-[#D98BA3]">decisões estratégicas</span>
         </h1>
 
-        <p class="mt-6 text-base leading-relaxed text-[#AFC2D8]">
+        <p class="mt-6 text-base leading-relaxed text-[#CDB8E0]">
           Acesse o painel inteligente para gestão unificada de clientes,
           faturamento, contratos e telemetria gerada via Python/Pandas
         </p>
 
       </div>
 
-      <p class="mt-12 text-xs text-[#7891AC]">
-        CTI Insights © 2026 — Ambiente Corporativo Seguro
+      <p class="mt-12 text-xs text-[#A58BBF]">
+        cti-information © 2026 — Ambiente Corporativo Seguro
       </p>
 
     </div>
 
     <!-- Painel direito: formulário de login -->
 
-    <div class="flex flex-1 flex-col items-center justify-center bg-white px-6 py-12 sm:py-16">
+    <div class="flex flex-1 flex-col items-center justify-center bg-[#F6F0FA] px-6 py-12 sm:py-16">
 
       <RouterLink
         to="/"
-        class="mb-4 flex w-full max-w-sm items-center gap-2 text-sm font-medium text-gray-600 transition hover:text-[#006EB7]"
+        class="mb-4 flex w-full max-w-sm items-center gap-2 text-sm font-medium text-gray-600 transition hover:text-[#5B2A86]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ const entrar = async () => {
       </RouterLink>
 
       <div
-        class="w-full max-w-sm rounded-xl border-t-4 border-[#FF8F00] bg-white p-8 shadow-lg ring-1 ring-gray-200 sm:p-9"
+        class="w-full max-w-sm rounded-xl border-t-4 border-[#8C1D40] bg-white p-8 shadow-lg ring-1 ring-gray-200 sm:p-9"
       >
 
         <h1 class="text-2xl font-bold text-[#292A2F]">
@@ -135,7 +135,7 @@ const entrar = async () => {
               v-model="email"
               type="email"
               placeholder="nome.sobrenome@empresa.com"
-              class="w-full rounded-md border border-gray-300 px-4 py-3 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-[#006EB7] focus:ring-2 focus:ring-[#006EB7]/10"
+              class="w-full rounded-md border border-gray-300 px-4 py-3 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-[#5B2A86] focus:ring-2 focus:ring-[#5B2A86]/10"
             />
 
           </div>
@@ -158,7 +158,7 @@ const entrar = async () => {
                 v-model="senha"
                 :type="mostrarSenha ? 'text' : 'password'"
                 placeholder="Digite sua senha"
-                class="w-full rounded-md border border-gray-300 px-4 py-3 pr-11 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-[#006EB7] focus:ring-2 focus:ring-[#006EB7]/10"
+                class="w-full rounded-md border border-gray-300 px-4 py-3 pr-11 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-[#5B2A86] focus:ring-2 focus:ring-[#5B2A86]/10"
               />
 
               <button
@@ -216,14 +216,14 @@ const entrar = async () => {
               <input
                 v-model="lembrar"
                 type="checkbox"
-                class="h-4 w-4 rounded border-gray-300 text-[#006EB7] focus:ring-[#006EB7]/30"
+                class="h-4 w-4 rounded border-gray-300 text-[#5B2A86] focus:ring-[#5B2A86]/30"
               />
               Lembrar acesso
             </label>
 
             <button
               type="button"
-              class="font-medium text-[#006EB7] hover:underline"
+              class="font-medium text-[#5B2A86] hover:underline"
             >
               Esqueci minha senha
             </button>
@@ -243,7 +243,7 @@ const entrar = async () => {
 
           <button
             type="submit"
-            class="w-full rounded-md bg-[#006EB7] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#03558c]"
+            class="w-full rounded-md bg-[#5B2A86] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#46206A]"
           >
             Acessar Painel
           </button>
@@ -251,13 +251,13 @@ const entrar = async () => {
         </form>
 
         <p class="mt-6 text-center text-sm text-gray-500">
-          Não possui acesso?
-          <a
-            href="#"
-            class="font-medium text-[#006EB7] hover:underline"
+          Não possui conta?
+          <RouterLink
+            to="/cadastro"
+            class="font-medium text-[#5B2A86] hover:underline"
           >
-            Solicitar credencial
-          </a>
+            Cadastre-se
+          </RouterLink>
         </p>
 
       </div>

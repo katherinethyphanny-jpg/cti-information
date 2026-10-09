@@ -12,7 +12,7 @@ const fecharMenu = () => {
   menuAberto.value = false
 }
 
-const aoPressionarTecla = evento => {
+const aoPressionarTecla = (evento) => {
   if (evento.key === 'Escape') {
     fecharMenu()
   }
@@ -24,10 +24,14 @@ onUnmounted(() => window.removeEventListener('keydown', aoPressionarTecla))
 
 <template>
   <!-- Header -->
-  <nav class="relative flex items-center justify-between py-6 md:py-8 px-6 md:px-10 gap-4 max-w-[1280px] mx-auto w-full">
+  <nav
+    class="relative flex items-center justify-between py-6 md:py-8 px-6 md:px-10 gap-4 max-w-[1280px] mx-auto w-full"
+  >
     <!-- Logo -->
-    <div class="font-['Space_Grotesk'] font-bold text-[22px] md:text-[26px] tracking-tight text-[#006EB7]">
-      CTI Insights<span class="text-[#FF8F00]">.</span>
+    <div
+      class="font-['Space_Grotesk'] font-bold text-[22px] md:text-[26px] tracking-tight text-[#5B2A86]"
+    >
+      CTI Information<span class="text-[#8C1D40]">.</span>
     </div>
     <!-- Menu: navega por seções desta mesma página (landing pública).
          Nenhum item aqui leva para telas internas do sistema — quem ainda
@@ -38,8 +42,10 @@ onUnmounted(() => window.removeEventListener('keydown', aoPressionarTecla))
       <a href="#arquitetura" class="hover:text-[#292930] transition-colors">Arquitetura</a>
     </div>
     <!-- Botão (desktop) -->
-    <router-link to="/login"
-      class="hidden md:inline-block bg-[#006EB7] text-[#FAFAF7] px-6 py-3 rounded text-base font-semibold whitespace-nowrap shadow-md hover:bg-[#03558c] transition-all">
+    <router-link
+      to="/login"
+      class="hidden md:inline-block bg-[#5B2A86] text-[#FBF8FC] px-6 py-3 rounded text-base font-semibold whitespace-nowrap shadow-md hover:bg-[#46206A] transition-all"
+    >
       Entrar no Sistema
     </router-link>
 
@@ -52,8 +58,20 @@ onUnmounted(() => window.removeEventListener('keydown', aoPressionarTecla))
       :aria-label="menuAberto ? 'Fechar menu' : 'Abrir menu'"
       class="md:hidden flex h-11 w-11 items-center justify-center rounded text-[#292930] hover:bg-white/80 transition-colors"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path v-if="menuAberto" stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          v-if="menuAberto"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 6l12 12M18 6L6 18"
+        />
         <path v-else stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
@@ -62,15 +80,30 @@ onUnmounted(() => window.removeEventListener('keydown', aoPressionarTecla))
     <div
       v-if="menuAberto"
       id="menu-mobile"
-      class="md:hidden absolute left-4 right-4 top-full z-50 flex flex-col rounded-lg border border-[#CDDADF] bg-white p-4 shadow-lg"
+      class="md:hidden absolute left-4 right-4 top-full z-50 flex flex-col rounded-lg border border-[#DCCFE6] bg-white p-4 shadow-lg"
     >
-      <a href="#inicio" @click="fecharMenu" class="rounded px-3 py-3 text-base font-medium text-[#292930] hover:bg-[#FAFAF7]">Apresentação</a>
-      <a href="#resultados" @click="fecharMenu" class="rounded px-3 py-3 text-base font-medium text-[#292930] hover:bg-[#FAFAF7]">Motor ETL</a>
-      <a href="#arquitetura" @click="fecharMenu" class="rounded px-3 py-3 text-base font-medium text-[#292930] hover:bg-[#FAFAF7]">Arquitetura</a>
+      <a
+        href="#inicio"
+        @click="fecharMenu"
+        class="rounded px-3 py-3 text-base font-medium text-[#292930] hover:bg-[#FBF8FC]"
+        >Apresentação</a
+      >
+      <a
+        href="#resultados"
+        @click="fecharMenu"
+        class="rounded px-3 py-3 text-base font-medium text-[#292930] hover:bg-[#FBF8FC]"
+        >Motor ETL</a
+      >
+      <a
+        href="#arquitetura"
+        @click="fecharMenu"
+        class="rounded px-3 py-3 text-base font-medium text-[#292930] hover:bg-[#FBF8FC]"
+        >Arquitetura</a
+      >
       <router-link
         to="/login"
         @click="fecharMenu"
-        class="mt-3 rounded bg-[#006EB7] px-4 py-3 text-center text-base font-semibold text-[#FAFAF7] hover:bg-[#03558c]"
+        class="mt-3 rounded bg-[#5B2A86] px-4 py-3 text-center text-base font-semibold text-[#FBF8FC] hover:bg-[#46206A]"
       >
         Entrar no Sistema
       </router-link>

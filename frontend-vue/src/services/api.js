@@ -17,6 +17,7 @@ const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '')
 const CHAVE_AUTH = 'ctiAuth'
 const CHAVE_USUARIO = 'ctiUsuario'
 const CHAVE_NOME = 'ctiNome'
+const CHAVE_USUARIOS = 'ctiUsuarios'
 const CHAVE_CLIENTES = 'ctiClientes'
 const CHAVE_TELEMETRIA = 'ctiTelemetria'
 
@@ -52,9 +53,9 @@ export const usuarioAtual = () => {
   return localStorage.getItem(CHAVE_USUARIO) || ''
 }
 
-// Nome para exibir na Sidebar. Vem da API quando ela informa (campo "nome"
-// do login). Sem isso — no mock, ou se a API só devolver o e-mail — deriva
-// do e-mail: "ana.lima@empresa.com" -> "Ana Lima".
+// Nome para exibir na Sidebar. Vem do cadastro (ou da API, quando ela
+// informa o campo "nome"). Sem isso, deriva do e-mail:
+// "ana.lima@empresa.com" -> "Ana Lima".
 const nomeAPartirDoEmail = email => {
   return String(email || '')
     .split('@')[0]
@@ -66,6 +67,61 @@ const nomeAPartirDoEmail = email => {
 
 export const nomeUsuario = () => {
   return localStorage.getItem(CHAVE_NOME) || nomeAPartirDoEmail(usuarioAtual())
+}
+
+// ---------- Cadastro de usuários (modo mock) ----------
+
+// E-mail sem espaços e em minúsculas, pra "Ana@x.com" e "ana@x.com" serem
+// a mesma conta.
+const normalizarEmail = email => String(email || '').trim().toLowerCase()
+
+// A senha nunca é guardada em texto puro: guardamos um hash SHA-256 com um
+// "sal" aleatório por usuário. É suficiente pra um protótipo no navegador,
+// mas NÃO substitui a segurança de um back-end de verdade (o localStorage
+// continua visível pra quem abrir o navegador). Obs.: crypto.subtle só
+// funciona em localhost ou HTTPS.
+const gerarSal = () => {
+  const bytes = crypto.getRandomValues(new Uint8Array(16))
+  return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('')
+}
+
+const gerarHash = async (senha, sal) => {
+  const dados = new TextEncoder().encode(`${sal}:${senha}`)
+  const resumo = await crypto.subtle.digest('SHA-256', dados)
+
+  return Array.from(new Uint8Array(resumo), b => b.toString(16).padStart(2, '0')).join('')
+}
+
+// API: POST /auth/cadastro  { nome, email, senha } -> { email, nome }
+// (409 se o e-mail já existir). Lança Error('EMAIL_JA_CADASTRADO') no mock.
+export const cadastrar = async ({ nome, email, senha }) => {
+  if (!USAR_MOCK) {
+    return http('/auth/cadastro', {
+      method: 'POST',
+      body: JSON.stringify({ nome, email, senha })
+    })
+  }
+
+  const emailNormalizado = normalizarEmail(email)
+  const usuarios = lerJson(CHAVE_USUARIOS, [])
+
+  if (usuarios.some(usuario => usuario.email === emailNormalizado)) {
+    throw new Error('EMAIL_JA_CADASTRADO')
+  }
+
+  const sal = gerarSal()
+
+  usuarios.push({
+    nome: String(nome).trim(),
+    email: emailNormalizado,
+    sal,
+    senhaHash: await gerarHash(senha, sal),
+    criadoEm: new Date().toISOString()
+  })
+
+  localStorage.setItem(CHAVE_USUARIOS, JSON.stringify(usuarios))
+
+  return { email: emailNormalizado, nome: String(nome).trim() }
 }
 
 // API: POST /auth/login  { email, senha } -> { email, nome? }
@@ -85,11 +141,29 @@ export const login = async (email, senha) => {
     return usuario
   }
 
-  // Mock: qualquer e-mail/senha "autenticam".
+  // Mock: só entra quem foi cadastrado e acertou a senha. A mensagem de erro
+  // é a mesma pros dois casos (e-mail inexistente ou senha errada), pra não
+  // revelar quais e-mails existem.
+  const emailNormalizado = normalizarEmail(email)
+  const usuario = lerJson(CHAVE_USUARIOS, []).find(
+    item => item.email === emailNormalizado
+  )
+
+  if (!usuario) {
+    throw new Error('CREDENCIAIS_INVALIDAS')
+  }
+
+  const hash = await gerarHash(senha, usuario.sal)
+
+  if (hash !== usuario.senhaHash) {
+    throw new Error('CREDENCIAIS_INVALIDAS')
+  }
+
   localStorage.setItem(CHAVE_AUTH, 'true')
-  localStorage.setItem(CHAVE_USUARIO, email)
-  localStorage.removeItem(CHAVE_NOME)
-  return { email }
+  localStorage.setItem(CHAVE_USUARIO, usuario.email)
+  localStorage.setItem(CHAVE_NOME, usuario.nome)
+
+  return { email: usuario.email, nome: usuario.nome }
 }
 
 // API: POST /auth/logout
@@ -168,6 +242,7 @@ export const esperarSimulado = async () => {
 // ---------- Limpeza ----------
 
 // Ferramenta de teste (botão "Limpar dados locais" em Relatórios).
+// Não apaga os usuários cadastrados, só clientes e histórico.
 // API: DELETE /clientes e DELETE /uploads, se o back-end oferecer isso.
 export const limparDados = async () => {
   localStorage.removeItem(CHAVE_CLIENTES)

@@ -21,7 +21,7 @@ const PASSOS = ['Enviar arquivo', 'Revisar dados', 'Confirmar', 'Concluído']
           :class="indice + 1 < etapaAtual
             ? 'border-green-600 bg-green-600 text-white'
             : indice + 1 === etapaAtual
-              ? 'border-[#006EB7] bg-[#006EB7] text-white'
+              ? 'border-[#5B2A86] bg-[#5B2A86] text-white'
               : 'border-gray-300 bg-white text-gray-400'"
           aria-hidden="true"
         >

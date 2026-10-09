@@ -70,7 +70,7 @@ const aoSoltar = event => {
 
       <button
         type="button"
-        class="inline-flex shrink-0 items-center gap-2 rounded-md border border-[#006EB7] px-4 py-2 text-xs font-semibold text-[#006EB7] transition hover:bg-blue-50"
+        class="inline-flex shrink-0 items-center gap-2 rounded-md border border-[#5B2A86] px-4 py-2 text-xs font-semibold text-[#5B2A86] transition hover:bg-purple-50"
         @click="baixarModelo"
       >
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -84,13 +84,13 @@ const aoSoltar = event => {
       role="region"
       aria-label="Área para arrastar e soltar a planilha"
       class="flex min-h-[240px] flex-col items-center justify-center rounded-lg border-2 border-dashed px-6 py-8 text-center transition"
-      :class="arrastando ? 'border-[#006EB7] bg-blue-50/60' : 'border-gray-300 hover:border-[#006EB7] hover:bg-blue-50/30'"
+      :class="arrastando ? 'border-[#5B2A86] bg-purple-50/60' : 'border-gray-300 hover:border-[#5B2A86] hover:bg-purple-50/30'"
       @dragenter.prevent="aoEntrar"
       @dragover.prevent
       @dragleave.prevent="aoSair"
       @drop.prevent="aoSoltar"
     >
-      <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-[#006EB7]">
+      <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-purple-50 text-[#5B2A86]">
         <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0L8 8m4-4 4 4M5 20h14" />
         </svg>
@@ -106,7 +106,7 @@ const aoSoltar = event => {
       <button
         type="button"
         :disabled="upload.carregando"
-        class="mt-5 rounded-md bg-[#FF8F00] px-6 py-3 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#E68100] disabled:cursor-not-allowed disabled:opacity-50"
+        class="mt-5 rounded-md bg-[#8C1D40] px-6 py-3 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#701731] disabled:cursor-not-allowed disabled:opacity-50"
         @click="abrirSeletor"
       >
         {{ upload.arquivo ? 'Trocar arquivo' : 'Selecionar arquivo' }}
@@ -145,7 +145,7 @@ const aoSoltar = event => {
       <button
         type="button"
         :disabled="!podeAnalisar"
-        class="inline-flex items-center justify-center gap-2 rounded-md bg-[#006EB7] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#03558c] disabled:cursor-not-allowed disabled:opacity-50"
+        class="inline-flex items-center justify-center gap-2 rounded-md bg-[#5B2A86] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:enabled:bg-[#46206A] disabled:cursor-not-allowed disabled:opacity-50"
         @click="analisar"
       >
         <svg v-if="upload.carregando" class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -169,7 +169,7 @@ const aoSoltar = event => {
     <div class="mt-5 border-t border-gray-100 pt-4">
       <button
         type="button"
-        class="text-xs font-semibold text-[#006EB7] hover:underline"
+        class="text-xs font-semibold text-[#5B2A86] hover:underline"
         :aria-expanded="mostrarColunas"
         aria-controls="colunas-esperadas"
         @click="mostrarColunas = !mostrarColunas"

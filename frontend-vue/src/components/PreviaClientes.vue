@@ -67,7 +67,7 @@ const formatarData = iso => {
           v-if="temRegistro"
           class="mt-0.5 text-xs text-gray-500"
         >
-          <span class="underline decoration-[#FF8F00] decoration-dotted decoration-2 underline-offset-4">Sublinhado</span>
+          <span class="underline decoration-[#8C1D40] decoration-dotted decoration-2 underline-offset-4">Sublinhado</span>
           = corrigido pelo ETL (passe o mouse para ver o original).
         </p>
       </div>
@@ -79,7 +79,7 @@ const formatarData = iso => {
         <input
           v-model="soCorrigidas"
           type="checkbox"
-          class="h-4 w-4 accent-[#006EB7]"
+          class="h-4 w-4 accent-[#5B2A86]"
         />
         Só linhas corrigidas
       </label>
@@ -126,7 +126,7 @@ const formatarData = iso => {
 
             <td class="px-4 py-3 text-gray-600">
               <span
-                :class="{ 'underline decoration-[#FF8F00] decoration-dotted decoration-2 underline-offset-4': corrigido(cliente, 'consultor') }"
+                :class="{ 'underline decoration-[#8C1D40] decoration-dotted decoration-2 underline-offset-4': corrigido(cliente, 'consultor') }"
                 :title="valorOriginal(cliente, 'consultor')"
               >
                 {{ cliente.consultor || '—' }}
@@ -135,7 +135,7 @@ const formatarData = iso => {
 
             <td class="px-4 py-3 text-gray-600">
               <span
-                :class="{ 'underline decoration-[#FF8F00] decoration-dotted decoration-2 underline-offset-4': corrigido(cliente, 'segmento') }"
+                :class="{ 'underline decoration-[#8C1D40] decoration-dotted decoration-2 underline-offset-4': corrigido(cliente, 'segmento') }"
                 :title="valorOriginal(cliente, 'segmento')"
               >
                 {{ cliente.segmento || '—' }}
@@ -147,7 +147,7 @@ const formatarData = iso => {
                 class="rounded-full px-2.5 py-0.5 text-[11px] font-semibold"
                 :class="[
                   ESTILO_NIVEL[cliente.nivel_cliente]?.selo || 'bg-gray-100 text-gray-600',
-                  { 'underline decoration-[#FF8F00] decoration-dotted decoration-2 underline-offset-2': corrigido(cliente, 'nivel_cliente') }
+                  { 'underline decoration-[#8C1D40] decoration-dotted decoration-2 underline-offset-2': corrigido(cliente, 'nivel_cliente') }
                 ]"
                 :title="valorOriginal(cliente, 'nivel_cliente')"
               >

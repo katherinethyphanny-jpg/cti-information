@@ -163,7 +163,7 @@ const limparDados = async () => {
               type="search"
               placeholder="Buscar empresa..."
               aria-label="Buscar empresa"
-              class="w-full max-w-xs rounded-md border border-gray-300 bg-white px-4 py-2 text-sm outline-none focus:border-[#006EB7] sm:w-64"
+              class="w-full max-w-xs rounded-md border border-gray-300 bg-white px-4 py-2 text-sm outline-none focus:border-[#5B2A86] sm:w-64"
             />
 
             <label
@@ -175,7 +175,7 @@ const limparDados = async () => {
                 id="relatorio-data-inicio"
                 v-model="dataInicio"
                 type="date"
-                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-[#006EB7]"
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-[#5B2A86]"
               />
             </label>
 
@@ -188,7 +188,7 @@ const limparDados = async () => {
                 id="relatorio-data-fim"
                 v-model="dataFim"
                 type="date"
-                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-[#006EB7]"
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-[#5B2A86]"
               />
             </label>
 
@@ -196,7 +196,7 @@ const limparDados = async () => {
               v-if="periodoAtivo"
               type="button"
               @click="limparPeriodo"
-              class="text-sm text-[#006EB7] transition hover:underline"
+              class="text-sm text-[#5B2A86] transition hover:underline"
             >
               Limpar período
             </button>
@@ -317,7 +317,7 @@ const limparDados = async () => {
 
                   <td class="p-4">
                     <span
-                      class="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[#006EB7]"
+                      class="rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-[#5B2A86]"
                     >
                       {{ cliente.nivel_cliente }}
                     </span>
@@ -395,7 +395,7 @@ const limparDados = async () => {
           <RouterLink
             v-if="!clientes.length"
             to="/upload"
-            class="mt-6 inline-block rounded-md bg-[#006EB7] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#03558c]"
+            class="mt-6 inline-block rounded-md bg-[#5B2A86] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#46206A]"
           >
             Ir para o Upload
           </RouterLink>

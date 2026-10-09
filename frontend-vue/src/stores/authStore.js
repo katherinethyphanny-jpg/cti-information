@@ -1,5 +1,12 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { estaAutenticado, login, logout, nomeUsuario, usuarioAtual } from '../services/api'
+import {
+  cadastrar as cadastrarUsuario,
+  estaAutenticado,
+  login,
+  logout,
+  nomeUsuario,
+  usuarioAtual
+} from '../services/api'
 
 // Sessão do usuário. O services/api.js continua sendo quem guarda a sessão
 // (localStorage no modo mock; token/cookie quando houver back-end); este
@@ -35,6 +42,13 @@ export const useAuthStore = defineStore('auth', {
     async entrar(email, senha) {
       await login(email, senha)
       this.recarregarSessao()
+    },
+
+    // Cria a conta e já deixa o usuário logado. Lança erro se o e-mail já
+    // existir (a tela de cadastro mostra a mensagem).
+    async cadastrar(nome, email, senha) {
+      await cadastrarUsuario({ nome, email, senha })
+      await this.entrar(email, senha)
     },
 
     async sair() {

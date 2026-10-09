@@ -1,7 +1,7 @@
 <template>
   <!-- Bloco: Gráfico de Faturamento Consolidado -->
   <div id="resultados" class="max-w-[1360px] mx-auto px-8">
-    <div class="border border-[#CDDADF] bg-white/75 backdrop-blur-[8px] rounded-lg p-7 relative overflow-hidden shadow-[0px_10px_30px_rgba(41,41,48,0.05)] mt-4">
+    <div class="border border-[#DCCFE6] bg-white/75 backdrop-blur-[8px] rounded-lg p-7 relative overflow-hidden shadow-[0px_10px_30px_rgba(41,41,48,0.05)] mt-4">
       
       <!-- Cabeçalho do Painel -->
       <div class="flex justify-between items-baseline mb-[18px] flex-wrap gap-2">
@@ -12,13 +12,13 @@
       <!-- Traçado do Gráfico com Animação SVG -->
       <div class="relative">
         <svg class="w-full h-[220px] block overflow-visible" viewBox="0 0 1000 220" preserveAspectRatio="none">
-          <line x1="0" y1="180" x2="1000" y2="180" stroke="#CDDADF" stroke-width="1"/>
+          <line x1="0" y1="180" x2="1000" y2="180" stroke="#DCCFE6" stroke-width="1"/>
 
           <!-- Caminho animado: pathLength normaliza o comprimento do traço,
                assim o dasharray cobre a linha inteira em qualquer largura -->
           <path
             fill="none"
-            stroke="#006EB7"
+            stroke="#5B2A86"
             stroke-width="3"
             pathLength="1000"
             stroke-dasharray="1000"
@@ -31,12 +31,12 @@
         <!-- Ponto de Alerta: fora do SVG, porque o SVG é esticado
              (preserveAspectRatio="none") e deformaria o círculo. Posição
              equivale a cx=960/1000 e cy=35 do traçado. -->
-        <span class="animate-pop opacity-0 absolute h-3.5 w-3.5 rounded-full bg-[#FF8F00] left-[96%] top-[35px] -ml-[7px] -mt-[7px]"></span>
+        <span class="animate-pop opacity-0 absolute h-3.5 w-3.5 rounded-full bg-[#8C1D40] left-[96%] top-[35px] -ml-[7px] -mt-[7px]"></span>
       </div>
 
       <!-- Alerta / Sugestão -->
       <div class="text-[12px] text-[#A85700] text-left md:text-right font-['IBM_Plex_Mono'] font-medium mt-2 animate-fadeup opacity-0">
-        <span class="text-[#FF8F00]">●</span> ALERTA IDENTIFICADO — AÇÃO SUGERIDA: Focar conversão de Upsell no segmento Indústria (Nível B para A)
+        <span class="text-[#8C1D40]">●</span> ALERTA IDENTIFICADO — AÇÃO SUGERIDA: Focar conversão de Upsell no segmento Indústria (Nível B para A)
       </div>
 
     </div>
