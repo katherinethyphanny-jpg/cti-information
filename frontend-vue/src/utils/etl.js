@@ -49,7 +49,9 @@ const padronizarSeTodoMaiusculoOuMinusculo = valor => {
   return temLetra && (todoMaiusculo || todoMinusculo) ? capitalizarPalavras(valor) : valor
 }
 
-// Aceita "aaaa-mm-dd" (ISO) ou "dd/mm/aaaa" e normaliza pra "aaaa-mm-dd".
+
+ // Aceita "aaaa-mm-dd" (ISO) ou "dd/mm/aaaa",
+ // normaliza para "aaaa-mm-dd" e valida a data no calendário.
 const parseDataContratacao = valor => {
   const limpo = String(valor ?? '').trim()
 
@@ -57,19 +59,37 @@ const parseDataContratacao = valor => {
     return null
   }
 
+  let ano
+  let mes
+  let dia
+
   if (/^\d{4}-\d{2}-\d{2}$/.test(limpo)) {
-    return limpo
+    [ano, mes, dia] = limpo.split('-').map(Number)
+  } else {
+    const match = limpo.match(/^(\d{2})\/(\d{2})\/(\d{4})$/)
+
+    if (!match) {
+      return null
+    }
+
+    dia = Number(match[1])
+    mes = Number(match[2])
+    ano = Number(match[3])
   }
 
-  const match = limpo.match(/^(\d{2})\/(\d{2})\/(\d{4})$/)
+  const data = new Date(Date.UTC(ano, mes - 1, dia))
 
-  if (match) {
-    const [, dia, mes, ano] = match
-    return `${ano}-${mes}-${dia}`
+  if (
+    data.getUTCFullYear() !== ano ||
+    data.getUTCMonth() !== mes - 1 ||
+    data.getUTCDate() !== dia
+  ) {
+    return null
   }
 
-  return null
+  return `${ano}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`
 }
+
 
 // Número direto quando o Excel já entrega numérico; texto tipo
 // "R$ 1.850.000,00" vira 1850000.
